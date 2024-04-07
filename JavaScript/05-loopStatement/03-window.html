@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <p id="t"></p>
+  </body>
+  <script>
+    window.onload = function () {
+      setInterval(function () {
+        let n = new Date();
+        let m = setTimeout(function () {
+          document.write(n.toLocaleString());
+        }, 0); // 0초 후에 띄우고
+
+        setTimeout(function () {
+          clearTimeout(m);
+          document.body.innerHTML = "";
+        }, 1000); //1초후에 타이머 해제 -> 본문을 공백으로 채운다.
+      }, 1000); //setInterval(콜백, 시간)
+    };
+  </script>
+</html>
