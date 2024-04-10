@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 3em;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+
+      .di2 {
+        display: flex;
+        width: 300px;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+
+      .di3 {
+        display: flex;
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="di">
+      <div class="di2">
+        <button class="prev">&lt;</button>
+        <span class="s1">
+          <span class="cur">1</span> / <span class="total">0</span>
+        </span>
+        <button class="next">&gt;</button>
+      </div>
+      <div class="di3">
+        <div><img src="../images/루피.JPG" /></div>
+        <div>
+          <img
+            src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.6435-9/53198237_881544528871246_5193888411861123072_n.png?stp=dst-png_p480x480&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=btCc_iVjGyAAb7n3B0a&_nc_ht=scontent-ssn1-1.xx&oh=00_AfB5SnevIDGj-qx-9eEikJ-5wBg1e-haMByt7PPd2J_gkA&oe=663C7FED"
+          />
+        </div>
+        <div>
+          <img
+            src="https://img.monstock.app/public/web/content/20230304/333ffc5c-dd46-42db-ba31-9527651172da.jpg"
+          />
+        </div>
+        <div>
+          <img src="../images/토마토라면_(5).JPG" />
+        </div>
+        <div>
+          <img src="../images/dog.jpeg" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let num = document.getElementsByTagName("img").length;
+    let cur = 0;
+
+    $(".total").text(num);
+
+    /* 처음 방식
+
+    $(".prev").click(function () {
+      if (cur === 0) {
+        cur = num - 1;
+        slideX();
+      } else {
+        cur = cur - 1;
+        slideX();
+      }
+    });
+
+    $(".next").click(function () {
+      if (cur === num - 1) {
+        cur = 0;
+        slideX();
+      } else {
+        cur = cur + 1;
+        slideX();
+      }
+    });
+    */
+
+    // 3항 연산자 적용
+    $(".prev").click(function () {
+      cur = cur === 0 ? num - 1 : cur - 1;
+      slideX();
+    });
+
+    $(".next").click(function () {
+      cur = cur === num - 1 ? 0 : cur + 1;
+      slideX();
+    });
+
+    function slideX() {
+      $(".di3").animate({ scrollLeft: cur * 300 }, 700);
+      $(".cur").text(cur + 1);
+    }
+  </script>
+</html>

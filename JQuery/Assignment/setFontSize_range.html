@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        padding: 3em;
+      }
+      .box {
+        width: 300px;
+        box-shadow: 0 5px 5px 5px gray;
+        background-color: beige;
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <span class="num">15</span>
+      <input type="range" id="setFont" value="15" min="10" />
+      <hr />
+      <p class="pr">
+        이 메시지가 표시되는 이유는 무엇인가요? Microsoft 계정(오른쪽 위
+        모서리에 표시됨)으로 office.com 로그인했기 때문에 이 항목이 표시되지만,
+        이 계정은 Microsoft 365 연결된 계정이나 Office Home & Business(또는
+        Project Standard 또는 Project Professional 같은 독립 실행형 앱)와 같은
+        Office의 비구독 버전으로 인식되지 않습니다.
+      </p>
+    </div>
+  </body>
+  <script>
+    // 잘못쓴 코드
+    // $("#setFont").on("input", function () {
+    //   let size = $("input").val();
+    //   $(".num").text() = $(this).val();
+    //   $(".num").text($(this).val());
+    //   $(".pr").css("font-size", s$(this).val() + "px");
+    // });
+
+    $("#setFont").on("input", function () {
+      let size = $(this).val();
+      $(".num").text(size);
+      $(".pr").css("font-size", size + "px");
+    });
+  </script>
+</html>

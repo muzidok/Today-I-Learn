@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        background-color: pink;
+        height: 70px;
+        font-size: 1.65em;
+      }
+      /* 버튼이 안나타나서 뭐지 하고 당황했는데 height를 주지않아서 길이가 안되니까 바로 사라지는거였다.. */
+      .box {
+        width: 600px;
+        margin: 200px 0;
+        height: 120vh;
+      }
+      .top {
+        position: fixed;
+        bottom: 3%;
+        right: 3%;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        /* display: none; */
+        cursor: pointer;
+      }
+      .footer {
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav header">header</div>
+    <div class="box">
+      <h1>HI</h1>
+      <p>
+        If you use this site regularly and would like to help keep the site on
+        the Internet, please consider donating a small sum to help pay for the
+        hosting and bandwidth bill. There is no minimum donation, any sum is
+        appreciated
+      </p>
+    </div>
+    <div class="nav footer">footer</div>
+    <div class="top">SCROLL TO TOP</div>
+
+    <script>
+      let offsetTop = 100;
+      let $n = $(".top");
+
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > offsetTop) {
+          $n.fadeIn();
+        } else {
+          $n.fadeOut();
+        }
+      });
+      $n.click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: 0,
+          },
+          500
+        );
+      });
+    </script>
+  </body>
+</html>
