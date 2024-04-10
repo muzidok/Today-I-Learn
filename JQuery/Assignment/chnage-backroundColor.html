@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .di {
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #pallat {
+        width: 300px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="di">
+      <h1>Change Color</h1>
+      <input type="color" id="pallat" value="pink" />
+    </div>
+  </body>
+  <script>
+    /* 1. 잘못 생각한 코드
+    input에서 일어나는 event를 클릭만한다고해서 되는게 아니였다.
+
+    */
+    $("#pallat").click(function () {
+      $("body").css("backgroundColor", `rgb(${a}, ${b}, ${c})`);
+    });
+
+    // 2. 클릭하고 컬러팔레트를 나가야지 색이변해서 마음에 안든다.
+    $("#pallat").change(function () {
+      var color = $(this).val();
+      $("body").css("backgroundColor", color);
+    });
+
+    // 3. on을 사용하니 이벤트처리를 좀 더 동적으로 처리할 수 있었다.
+    $("#pallat").on("input", function () {
+      $("body").css({
+        "background-color": $(this).val(),
+      });
+    });
+
+    // 4. 호기심
+    // click 이벤트르 사용하니 on을 쓰더라도 클릭이 끝난뒤 느리게 반응해서 정말 이상하다.
+    $("#pallat").on("click", function () {
+      $("body").css({
+        "background-color": $(this).val(),
+      });
+    });
+  </script>
+</html>

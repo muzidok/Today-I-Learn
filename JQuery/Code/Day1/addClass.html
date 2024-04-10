@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      .size button.act {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="di">
+      <h2>사이즈 선택</h2>
+      <div class="size">
+        <button>225</button>
+        <button>230</button>
+        <button>235</button>
+        <button>240</button>
+        <button>245</button>
+        <button>250</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    $(".size button").click(function () {
+      $(this).addClass("act");
+      $(this).siblings().removeClass("act");
+    });
+  </script>
+</html>

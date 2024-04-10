@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        background-color: gray;
+      }
+      ul {
+        list-style: none;
+      }
+      .cafe li > a,
+      .sub a {
+        text-decoration: none;
+        color: brown;
+        text-transform: capitalize; /* 앞문자를 대문자로 바꿔준다 */
+      }
+      .cafe li > a {
+        background-color: rgb(255, 252, 252);
+        border-bottom: 1px solid rgba(12, 112, 213, 0.704);
+      }
+      .sub {
+        display: none;
+      }
+      .sub a:hover {
+        background-color: pink;
+      }
+      .cafe li > a:after {
+        float: left;
+        content: "+";
+        /* a 태그들만 after를 붙임 */
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="cafe">
+      <li>
+        <a href="#menu">home</a>
+        <div class="sub">
+          <a href="#menu">americano</a>
+          <a href="#menu">latte</a>
+          <a href="#menu">capuccino</a>
+        </div>
+      </li>
+      <li>
+        <a href="#menu">sandwich bibimbap</a>
+        <div class="sub">...</div>
+      </li>
+      <li>
+        <a href="#menu">steak salad</a>
+        <div class="sub">...</div>
+      </li>
+    </ul>
+  </body>
+  <script>
+    $(".sub").eq(0).show(); /**/
+    $(".cafe li > a").click(function () {
+      $(this).next().slideDown();
+      $(this).parent().siblings().children(".sub").slideUp();
+    });
+  </script>
+</html>

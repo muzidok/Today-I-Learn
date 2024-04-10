@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      h3 {
+        margin-bottom: 10px;
+      }
+      .input_box {
+        width: 400px;
+      }
+      .login_btn {
+        margin: 15px 0;
+        background-color: pink;
+        color: white;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1>로그인</h1>
+      <h3>아이디</h3>
+      <input
+        class="input_box"
+        type="text"
+        placeholder="아이디를 입력해주세요"
+        id="account"
+      />
+      <h3>패스워드</h3>
+      <input
+        class="input_box"
+        type="password"
+        placeholder="비밀번호를 입력해주세요"
+        id="pw"
+      />
+    </form>
+    <button class="login_btn" onclick="checkLogin()">로그인</button>
+  </body>
+  <script>
+    $(".login_btn").on("mouseenter", function () {
+      $(".login_btn").css({ "background-color": "tomato", cursor: "pointer" });
+    });
+    $(".login_btn").on("mouseleave", function () {
+      $(".login_btn").css({ "background-color": "pink", cursor: "pointer" });
+    });
+
+    const id = "자바";
+    const pw = "1234";
+
+    const checkLogin = () => {
+      if ($("#account").val() === id && $("#pw").val() === pw) {
+        alert("로그인 성공");
+      } else {
+        alert("로그인 실패");
+      }
+    };
+  </script>
+</html>

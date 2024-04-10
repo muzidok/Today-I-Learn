@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+      body{
+        margin: 0;
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+      }
+      .di{
+        width: 850px;
+        text-align: center;
+      }
+      .btn-toggle{
+        position: fixed;
+        top:20px;
+        right: 20px;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      .dark{
+        background-color: black;
+        color:whitesmoke;
+      }
+
+  </style>
+</head>
+<body>
+<!--버튼 하나만 만들어서 구현하기-->
+<div class="di">
+  <h1>라이트 모드 & 다크 모드 전환</h1>
+  <p class="p1">
+    (서울=연합뉴스) 유한주 기자 = 미국 뉴욕타임스(NYT)가 선정한
+    '2024년 뉴욕 최고의 레스토랑 100곳'에 한식당 7곳이 선정됐다.
+    NYT는 지난주 뉴욕 지역 최고의 레스토랑 순위를 발표하면서 4위에
+    한식당 '아토믹스'를 올렸다.
+  </p>
+  <button class="btn-toggle dark-btn" id="btn-toggle">
+    <span>Dark mode</span><i class="bi bi-moon-fill"></i>
+  </button>
+</div>
+<script>
+  $('.btn-toggle').click(function(){ //버튼을 누를때
+    $('body').toggleClass('dark');  //dark라는이름의 클래스추가
+    $(this).css({'border':'1px solid black'});
+
+    $(this).children('span').text(
+      $(this).children('span').text() == 'Light Mode'? 'Dark Mode' : 'Light Mode'
+    );
+
+    $(this).find('i').toggleClass('bi bi-sunset');
+
+
+  })
+
+</script>
+</body>
+
+</html>
