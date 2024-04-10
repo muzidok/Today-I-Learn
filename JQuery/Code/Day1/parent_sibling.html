@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js">
+      //defer를 넣으면 스크립트를 위쪽에서부터 읽을 수 있다.
+    </script>
+  </head>
+  <body>
+    <div class="di" style="width:500px;">
+     <p>
+      Architecture is the art and technique of designing and building<span> planning,
+      designing, and constructing buildings or other structures.</span></p>
+      <p>[5] The term
+      comes from Latin architectura; from Ancient Greek ἀρχιτέκτων (arkhitéktōn)
+      <span>from ἀρχι- (arkhi-) 'chief', and τέκτων (téktōn) 'creator'.</span>
+       in the material form of buildings, <blockquote>are often
+      perceived as cultural <p>symbols and as works of art.</p> Historical</blockquote>
+      civilisations are often identified
+    </p>
+    <a href="#" class="a">li1</a>
+    <a href="#" class="a b">li1</a>
+    <a href="#" class="a">li1</a>
+    <a href="#" class="a">li1</a>
+    <a href="#" class="a">li1</a>
+
+
+  </body>
+  <script>
+    $('a').css({
+      'display': 'block',
+      'color': 'blue',
+      'text-decoration': 'none'
+    });
+    $('.a.b').siblings().css({ //.a.b를제외한 형제요소들
+      'background' : 'red'
+    });
+    $('.a.b').parent().css({ // .a.b의 부모요소
+      'border': '2px solid green'
+    })
+  </script>
+</html>
