@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <style>
+            body{
+                margin: 20px;
+            }
+            #di{
+                border: 1px solid black;
+                padding: 30px;
+            }
+            #di a{
+                text-decoration: none;
+                border:  1px solid black;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="di">
+            <a class="link" href="#none">link</a>
+        </div>
+    </body>
+  <script>
+    let n = document.getElementById("di"); // 상위
+    let m = document.querySelector("#di a"); //하위
+
+    // 상위요소로 전달되는 버블링
+    // 하위요소로 전달되는 캡처링
+
+    /* 단순히 상위요로소 부모를 찾아가는게 버블링, 자식을 찾아가는게 캡처링이라고 생각했는데
+    써보니까 스타일 적용시 함께 영향을 받았다.
+    이를 막는 함수가있다.
+    */
+
+    n.onclick = function () {
+      this.style.borderColor = "red";
+    };
+    m.onclick = function (e) {
+      e.stopPropagatoin(); // 버블링, 챕처링 막는 함수
+      this.style.borderColor = "blue";
+    };
+  </script>
+</html>

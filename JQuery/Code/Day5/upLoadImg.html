@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <style>
+    .profile {
+      background-color: rgba(99, 99, 99, 0.356);
+      padding: 30px;
+    }
+    .profile .profile-photo {
+      display: flex;
+    }
+    .profile h3 {
+      text-align: center;
+    }
+    .profile-photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .profile-photo img {
+      width: 200px;
+      height: 200px;
+    }
+    .photo-upload {
+      background-color: whitesmoke;
+      width: 300px;
+      padding: 10px;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .photo-upload label {
+      background-color: tomato;
+      color: white;
+      padding: 10px 20px;
+      margin-left: 10px;
+    }
+    .photo-upload #upload {
+      display: none;
+    }
+    /* 
+    .photo-upload input[type="file"] {
+      display: none;
+    } */
+  </style>
+  <body>
+    <div class="profile">
+      <h3>upload profile</h3>
+      <div class="profile-photo">
+        <img src="images/a.jpg" />
+      </div>
+      <div class="photo-upload">
+        <label for="upload">Upload Photo</label>
+        <input type="file" id="upload" />
+      </div>
+    </div>
+  </body>
+  <script>
+    $("#upload").change(function (e) {
+      let clicked = URL.createObjectURL(e.target.files[0]);
+      $(".profile-photo img").attr("src", clicked);
+    });
+  </script>
+</html>
